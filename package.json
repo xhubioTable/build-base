@@ -1,5 +1,5 @@
 {
-  "name": "@tlink/build-base",
+  "name": "@xhubiotable/build-base",
   "version": "1.0.4",
   "publishConfig": {
     "access": "public"

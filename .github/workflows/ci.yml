@@ -3,34 +3,31 @@ name: CI
 jobs:
   test_and_release:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 22.13.0
     steps:
-      - uses: actions/checkout@v4
-      - name: Cache node modules
-        uses: actions/cache@v4
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: >-
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{
-            hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Build / Test Node ${{ matrix.node-version }}
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
-      - run: npm install
-      - run: npm ci
-      - run: npm test
-      - run: npx semantic-release
+          node-version: '22'
+
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+      
+      - name: Build Project
+        run: npm test
+
+      - name: Release version
+        run: npx semantic-release
         env:
           CI: 'true'
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

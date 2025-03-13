@@ -1,0 +1,14 @@
+ignores: [
+  "@semantic-release/*",
+  "@types/jest",
+  "@types/node",
+  "eslint-config-prettier",
+  "eslint-plugin-*",
+  "semantic-release",
+  "ts-jest",
+  "typedoc",
+  "typedoc-plugin-markdown",
+  "@tlink/file-processor",
+  "@tlink/importer-xlsx",
+  "@tlink/model-matrix"
+]

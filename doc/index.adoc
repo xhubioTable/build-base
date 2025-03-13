@@ -1,0 +1,24 @@
+== @xhubio/e2e-tool-build-base
+
+The @xhubio/e2e-tool-build-base module centralizes core functionality needed by other base modules.
+As the number of base modules grew, it became essential to consolidate common code into a single module.
+
+=== Functions
+
+This module offers a variety of functions:
+
+:leveloffset: +1
+
+include::script/xhubioCopyFiles.adoc[]
+
+include::script/xhubioReplaceImageLinks.adoc[]
+
+:leveloffset: -1
+
+==== packageMaintenance
+
+This function updates the package.json file.
+
+==== generalScriptExecuter
+
+This function executes specified scripts.

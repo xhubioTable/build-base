@@ -1,0 +1,39 @@
+=== xhubioCopyFiles
+
+This function copies static files into the build folder. To enable this functionality, add the following property to your `package.json` file:
+
+[source,json]
+----
+{
+  "copyFiles": [
+    {
+      "baseFolder": "src/graphql",
+      "destFolder": "dest/graphql",
+      "fileTypes": [".graphql", ".csv"], <1>
+      "replace": {                        <2>
+        "regExp": "(.*)spec\\.ts(.*)",
+        "replacement": "$1.js$2"
+      }
+    },
+    {
+      "baseFolder": "src/csv",
+      "destFolder": "dest/csv",
+      "fileTypes": [".graphql", ".csv", ".json"]
+    },
+    {
+      "baseFolder": "src",
+      "destFolder": "dest",
+      "fileGlobs": ["**/*.graphql"]      <3>
+    }
+  ]
+}
+----
+<1> Files with the specified types in the source folder are selected.  
+<2> Provide a `replace` object if you need to modify file names. This object uses `string.replaceAll(regExp, replacement)` to perform the replacement.  
+<3> A glob pattern is allowed for recursive searches; the matched files are copied while preserving their relative paths.
+
+To run the copy process, add the following script to your project:
+
+----
+npm run xhubioCopyFiles
+----

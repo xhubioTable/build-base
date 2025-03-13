@@ -1,0 +1,3 @@
+=== xhubioReplaceImageLinks
+
+This script processes the generated `readme.md` file located in the `docApi` directory by moving it to the root directory. During this process, it adjusts image paths from `images/xyz` to `doc/images/xyz`.

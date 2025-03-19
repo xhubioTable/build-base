@@ -79,7 +79,7 @@
     "semantic-release": "24.2.3",
     "ts-jest": "29.2.6",
     "typedoc": "0.27.9",
-    "typedoc-plugin-markdown": "4.4.2",
+    "typedoc-plugin-markdown": "4.5.1",
     "typescript": "5.8.2"
   }
 }

@@ -81,5 +81,6 @@
     "typedoc": "0.28.1",
     "typedoc-plugin-markdown": "4.4.2",
     "typescript": "5.8.2"
-  }
+  },
+  "deprecated": "This package has been deprecated. Please use @xhubio/nanook-table instead."
 }
